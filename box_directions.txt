@@ -1,0 +1,14 @@
+Based on the Box API directions (https://box-content.readme.io/docs/oauth-20)
+
+Paste this in your browser, log in to box:
+
+https://account.box.com/api/oauth2/authorize?response_type=code&client_id=lzkfx3i061rn44dhtsjykl2orx97hbil&state=authenticated
+
+Paste the code you're given into this line, then run in bash
+
+curl https://api.box.com/oauth2/token -d 'grant_type=authorization_code&code={your code}&client_id=lzkfx3i061rn44dhtsjykl2orx97hbil&client_secret=2PEs01kwreL86LxKjBgOrWVUcKh5qSu7' -X POST
+
+You'll get a JSON response with an access token and a refresh token if it's successful. The access token expires after
+one hour or so. To get a new one using the refresh code, run this command:
+
+curl https://api.box.com/oauth2/token -d 'grant_type=refresh_token&refresh_token={valid refresh token}&client_id=lzkfx3i061rn44dhtsjykl2orx97hbil&client_secret=2PEs01kwreL86LxKjBgOrWVUcKh5qSu7' -X POST
