@@ -18,3 +18,11 @@ LIMIT=100
 OFFSET=0
 NEXT_FOLDER_ID=$FOLDER_ID
 HEADER="Authorization: Bearer $ACCESS_TOKEN"
+
+# pseudo code
+for $MATERIAL_FOLDER in $MATERIAL_COMPATIBILITY
+  check if imgs, spc, txt folders exist
+  if not then: 
+    create imgs folder
+    create spc folder
+    create txt folder
